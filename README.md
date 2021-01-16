@@ -18,7 +18,7 @@
 #  Imágenes
   
   
-* Crear una imagen a partir de un Dockerfile
+## Crear una imagen a partir de un Dockerfile
   
 En la raiz de la carpeta donde se ejecuta el comando, debe estar el archivo llamado DockerFile
   
