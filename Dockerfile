@@ -7,8 +7,7 @@ LABEL description="Centos image"
 
 RUN yum install httpd -y
 
-WORKDIR /var/www/html
+COPY html /var/www/html
+COPY run.sh /run.sh
 
-COPY html .
-
-CMD apachectl -DFOREGROUND
+CMD sh /run.sh
