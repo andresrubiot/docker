@@ -1,13 +1,27 @@
-# centos-apache tag 1.0
-FROM centos:centos8.3.2011
+FROM nginx:1.19.6
 
-LABEL name="centos-apache"
 LABEL version="1.0"
-LABEL description="Centos image"
 
-RUN yum install httpd -y
+ENV archivo=docker
 
-COPY html /var/www/html
-COPY run.sh /run.sh
+WORKDIR /usr/share/nginx/html
 
-CMD sh /run.sh
+COPY kross .
+
+RUN echo "${archivo}" > ./env.html
+
+EXPOSE 90
+
+RUN useradd andresrubiot
+
+USER andresrubiot
+
+RUN echo "Hola, soy $(whoami)" > /tmp/yo.html
+
+USER root
+
+RUN cp /tmp/yo.html .
+
+VOLUME /var/log/nginx
+
+CMD nginx -g 'daemon off;'
