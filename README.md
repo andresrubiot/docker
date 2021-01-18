@@ -89,3 +89,7 @@ docker rm -fv nombre_contenedor
 ```
 
 # Dockerfile
+
+## SSL
+
+Al configurar nuestro SSL (ssl.conf) en el puerto 443, debemos exponer y mapear ese mismo puerto al crear el contenedor

@@ -1,27 +1,28 @@
-FROM nginx:1.19.6
+FROM centos:7
 
 LABEL version="1.0"
+LABEL description="Imagen con centos V7, php y SSL autofirmado"
 
-ENV archivo=docker
+WORKDIR /var/www/html
 
-WORKDIR /usr/share/nginx/html
+RUN yum -y install \
+  httpd \
+  php \
+  php-cli \
+  php-common \
+  mod_ssl \
+  openssl
+
+RUN echo "<?php phpinfo(); ?>" > ./info.php
 
 COPY kross .
 
-RUN echo "${archivo}" > ./env.html
+COPY docker.crt /docker.crt
 
-EXPOSE 90
+COPY docker.key /docker.key
 
-RUN useradd andresrubiot
+COPY ssl.conf /etc/httpd/conf.d/default.conf
 
-USER andresrubiot
+EXPOSE 443
 
-RUN echo "Hola, soy $(whoami)" > /tmp/yo.html
-
-USER root
-
-RUN cp /tmp/yo.html .
-
-VOLUME /var/log/nginx
-
-CMD nginx -g 'daemon off;'
+CMD apachectl -DFOREGROUND
