@@ -25,6 +25,16 @@ En la raiz de la carpeta donde se ejecuta el comando, debe estar el archivo llam
 ```
 docker build -t nombre_imagen:tag_imagen .
 ```
+
+## Crear una imagen a partir de un Dockerfile con nombre diferente
+  
+En la raiz de la carpeta donde se ejecuta el comando, debe estar el archivo con el nombre que se desee
+
+*-f indica que tenemos un archivo dockerfile con nombre personalizado*
+  
+```
+docker build -t nombre_imagen:tag_imagen -f nombre_archivo .
+```
   
 ##  Mostrar todas las imagenes creadas
   

@@ -1,0 +1,7 @@
+FROM centos:7
+
+LABEL name="centos"
+LABEL version="1.0"
+LABEL description="Imagen con centos 7"
+
+RUN echo "hola"
