@@ -69,11 +69,26 @@ docker rmi nombre_imagen:tag_imagen
   
   
 ##  Crear un contenedor
-  
-  
+
+### Listar contenedores
+
+```
+docker ps
+```
+
+_Tambien podemos ver los contenedores detenidos añadiendo el flag -a_
+
+```
+docker ps -a
+```
+
+### Crear un contenedor
+
 Para crear un contenedor, primero debe estar creada la imagen
   
 *Se agrega el atributo -d para que se ejecute de fondo*
+
+*Si no se agrega el flag --name nombre_contenedor, se asignara un aleatorio*
   
   
 ```
@@ -90,12 +105,51 @@ Mapear un puerto, permite que se conecte, el puerto de nuestra maquina local, co
 ```
 docker run -d --name nombre_contenedor -p puerto_local:puerto_contenedor nombre_imagen:tag_imagen
 ```
+
+## Renombrar un contenedor
+
+Si olvidamos colocar el nombre a un contenedor, con la siguiente línea de código es posible cambiarlo
+
+```
+docker rename nombre_anterior nuevo_nombre
+```
+
+## Detener un contenedor
+
+Para detener un contenedor podemos utilizar su id unico
+
+```
+docker stop id_contenedor
+```
+
+O podemos utilizar su nombre
+
+```
+docker stop nombre_contenedor
+```
+
+## Iniciar un contenedor detenido
+
+```
+docker start id_contenedor
+```
+
+```
+docker start nombre_contenedor
+```
   
 ##  Eliminar un contenedor
-  
-  
+    
 ```
 docker rm -fv nombre_contenedor
+```
+
+### Borrar todos los contenedores a la vez
+
+_Utilizar solo el flag -q nos permite obtener solo el id de los contenedores_
+
+```
+docker ps -q | xargs docker rm -f 
 ```
 
 # Dockerfile
