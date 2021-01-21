@@ -37,12 +37,15 @@ docker build -t nombre_imagen:tag_imagen -f nombre_archivo .
 ```
   
 ##  Mostrar todas las imagenes creadas
-  
-  
-*se puede agregar -a al final para mostrar todas las imagenes "ocultas"*
-  
+
 ```
 docker images
+```
+  
+*se puede agregar -a al final para mostrar todas las imagenes "ocultas"*
+
+```
+docker images -a
 ```
   
 ##  Ver el historial de una imagen
@@ -66,23 +69,8 @@ docker rmi nombre_imagen:tag_imagen
 ```
   
 #  Contenedores
-  
-  
-##  Crear un contenedor
 
-### Listar contenedores
-
-```
-docker ps
-```
-
-_Tambien podemos ver los contenedores detenidos añadiendo el flag -a_
-
-```
-docker ps -a
-```
-
-### Crear un contenedor
+## Crear un contenedor
 
 Para crear un contenedor, primero debe estar creada la imagen
   
@@ -94,8 +82,50 @@ Para crear un contenedor, primero debe estar creada la imagen
 ```
 docker run -d --name nombre_contenedor nombre_imagen:tag_imagen
 ```
+
+## Crear un contenedor desde un sistema operativo
+
+Se puede crear un contenedor apartir de un sistema operativo, para hacer pruebas o acceder a la terminal
+
+```
+docker run -dit --name nombre_contenedor nombre_imagen:tag_imagen
+```
+
+## Crear variables de entorno al crear contenedor
+
+_El flag -e crear una variable de entorno al crear el contenedor_
+
+```
+docker run -d -e "variable=valor" --name _nombre_contenedor nombre_imagen:tag_imagen
+```
+
+## Ingresar a la terminal de un contenedor
+
+_El argumento bash puede variar segun el sistema operativo de la imagen_
+
+```
+docker exec -it id_contenedor bash
+```
+
+_En windows puede ser necesario usar winpty al inicio del comando_
+
+```
+winpty docker exec -it id_contenedor bash
+```
+
+## Listar contenedores
+
+```
+docker ps
+```
+
+_Tambien podemos ver los contenedores detenidos añadiendo el flag -a_
+
+```
+docker ps -a
+```
   
-###  Crear un contenedor y mapear puertos
+##  Crear un contenedor y mapear puertos
   
   
 Mapear un puerto, permite que se conecte, el puerto de nuestra maquina local, con el puerto del contenedor
@@ -144,7 +174,7 @@ docker start nombre_contenedor
 docker rm -fv nombre_contenedor
 ```
 
-### Borrar todos los contenedores a la vez
+## Borrar todos los contenedores a la vez
 
 _Utilizar solo el flag -q nos permite obtener solo el id de los contenedores_
 
