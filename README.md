@@ -4,14 +4,30 @@
   
   
   
-- [Imágenes](#Imágenes )
-  - [Mostrar imagenes](#Mostrar-todas-las-imagenes-creadas )
-  - [Historial de una imagen](#Ver-el-historial-de-una-imagen )
-  - [Eliminar imagenes](#Eliminar-una-imagen )
-- [Contenedores](#Contenedores )
-  - [Crear un contenedor](#Crear-un-contenedor )
-    - [Crear un contenedor y mapear puertos](#Crear-un-contenedor-y-mapear-puertos )
-  - [Eliminar contenedores](#Eliminar-un-contenedor )
+- [Imágenes](#Imágenes)
+  - [Crear una imágen a partir de un Dockerfile](#crear-una-imagen-a-partir-de-un-Dockerfile)
+  - [Crear una imágen a partir de un Dockerfile con nombre diferente](#crear-una-imagen-a-partir-de-un-Dockerfile-con-nombre-diferente)
+  - [Mostrar todas las imagenes](#Mostrar-todas-las-imagenes-creadas)
+  - [Historial de una imagen](#Ver-el-historial-de-una-imagen)
+  - [Eliminar imagenes](#Eliminar-una-imagen)
+- [Contenedores](#Contenedores)
+  - [Crear un contenedor](#Crear-un-contenedor)
+  - [Crear un contenedor y mapear puertos](#Crear-un-contenedor-y-mapear-puertos)
+  - [Crear un contenedor desde un sistema operativo](#Crear-un-contenedor-desde-un-sistema-operativo)
+  - [Crear variables de entorno al crear contenedor](#Crear-variables-de-entorno-al-clrear-contenedor)
+  - [Limitar recursos al crear un contenedor](#limitar-recursos-al-crear-un-contenedor)
+  - [Ver el log de un contenedor](#ver-el-log-de-un-contenedor)
+  - [Ver recursos de un contenedor](#ver-recursos-de-un-contenedor)
+  - [Ingresar a la terminal de un contenedor](#ingresar-a-la-terminal-de-un-contenedor)
+  - [Listar contenedores](#listar-contenedores)
+  - [Renombrar un contenedor](#renombrar-un-contenedor)
+  - [Detener un contenedor](#detener-un-contenedor)
+  - [Iniciar un contenedor detenido](#iniciar-un-contenedor-detenido)
+  - [Eliminar un contenedor](#eliminar-un-contenedor)
+  - [Eliminar todos los contenedores a la vez](#eliminar-todos-los-contenedores-a-la-vez)
+  - [Eliminar contenedores](#Eliminar-un-contenedor)
+- [Dockerfile](#dockerfile)
+  - [SSL](#ssl)
   
   
   
@@ -109,7 +125,7 @@ _El flag -e crear una variable de entorno al crear el contenedor_
 docker run -d -e "variable=valor" --name _nombre_contenedor nombre_imagen:tag_imagen
 ```
 
-### Limitar recursos al crear un contenedor
+## Limitar recursos al crear un contenedor
 
 Limitar la cantidad de memoria que utilizara un contenedor
 
