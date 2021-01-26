@@ -28,7 +28,7 @@
   - [Eliminar contenedores](#Eliminar-un-contenedor)
 - [Dockerfile](#dockerfile)
   - [SSL](#ssl)
-  
+- [Docker commit](#docker-commit)
   
   
 #  Imágenes
@@ -111,7 +111,7 @@ docker run -d --name nombre_contenedor -p puerto_local:puerto_contenedor nombre_
 
 ## Crear un contenedor desde un sistema operativo
 
-Se puede crear un contenedor apartir de un sistema operativo, para hacer pruebas o acceder a la terminal
+Se puede crear un contenedor apartir de un sistema operativo (esto cuando no se define la capa de persistencia o de ejeceución de fondo en el dockerfile), para hacer pruebas o acceder a la terminal
 
 ```
 docker run -dit --name nombre_contenedor nombre_imagen:tag_imagen
@@ -226,3 +226,17 @@ docker rm -fv $(docker ps -aq)
 ## SSL
 
 Al configurar nuestro SSL (ssl.conf) en el puerto 443, debemos exponer y mapear ese mismo puerto al crear el contenedor
+
+# Docker commit
+
+*No es recomendable hacer cambios dentro de un contenedor*
+
+_Esta opción nos permite crear una imagen a partir de un contenedor_
+
+*NOTA:* _El proceso de commit, puede causar que el cmd de la imagen no se genere por lo cual, al correr el contenedor puede ser necesario agregar el cmd al correr el contenedor_
+
+*NOTA* _Crear una imagen desde un contenedor, dara como resultado que todo lo que este en la capa VOLUME no se guarde; esto cuando el contenedor se ha creado anteriormente desde un dockerfile y posee un VOLUME, todo lo demas (fuera de la ruta del VOLUME) se guardara_
+
+```
+ docker commit _nombre_contenedor_ _nombre_imagen:tag_imagen_
+```
