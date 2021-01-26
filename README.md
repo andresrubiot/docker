@@ -91,6 +91,12 @@ Se puede crear un contenedor apartir de un sistema operativo, para hacer pruebas
 docker run -dit --name nombre_contenedor nombre_imagen:tag_imagen
 ```
 
+## Ver el log de un contenedor
+
+```
+docker logs -f _id_contenedor_
+```
+
 ## Crear variables de entorno al crear contenedor
 
 _El flag -e crear una variable de entorno al crear el contenedor_
@@ -174,12 +180,14 @@ docker start nombre_contenedor
 docker rm -fv nombre_contenedor
 ```
 
-## Borrar todos los contenedores a la vez
+## Eliminar todos los contenedores a la vez
+
+*Esto elimina los contenedores que esten ocultos y los que esten corriendo*
 
 _Utilizar solo el flag -q nos permite obtener solo el id de los contenedores_
 
 ```
-docker ps -q | xargs docker rm -f 
+docker rm -fv $(docker ps -aq)
 ```
 
 # Dockerfile
