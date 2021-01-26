@@ -78,9 +78,19 @@ Para crear un contenedor, primero debe estar creada la imagen
 
 *Si no se agrega el flag --name nombre_contenedor, se asignara un aleatorio*
   
-  
 ```
 docker run -d --name nombre_contenedor nombre_imagen:tag_imagen
+```
+
+##  Crear un contenedor y mapear puertos
+  
+  
+Mapear un puerto, permite que se conecte, el puerto de nuestra maquina local, con el puerto del contenedor
+  
+*-p mapea el puerto de nuestra maquina con el puerto del contenedor*
+  
+```
+docker run -d --name nombre_contenedor -p puerto_local:puerto_contenedor nombre_imagen:tag_imagen
 ```
 
 ## Crear un contenedor desde un sistema operativo
@@ -91,18 +101,34 @@ Se puede crear un contenedor apartir de un sistema operativo, para hacer pruebas
 docker run -dit --name nombre_contenedor nombre_imagen:tag_imagen
 ```
 
-## Ver el log de un contenedor
-
-```
-docker logs -f _id_contenedor_
-```
-
 ## Crear variables de entorno al crear contenedor
 
 _El flag -e crear una variable de entorno al crear el contenedor_
 
 ```
 docker run -d -e "variable=valor" --name _nombre_contenedor nombre_imagen:tag_imagen
+```
+
+### Limitar recursos al crear un contenedor
+
+Limitar la cantidad de memoria que utilizara un contenedor
+
+```
+docker run -d -m "500mb" --name _nombre_contenedor nombre_imagen:tag_imagen
+```
+
+## Ver el log de un contenedor
+
+```
+docker logs -f _id_contenedor_
+```
+
+## Ver recursos de un contenedor
+
+Con este código podemos ver cuantos recursos esta consumiedo el contenedor seleccionado
+
+```
+docker stats _nombre_contenedor_
 ```
 
 ## Ingresar a la terminal de un contenedor
@@ -129,17 +155,6 @@ _Tambien podemos ver los contenedores detenidos añadiendo el flag -a_
 
 ```
 docker ps -a
-```
-  
-##  Crear un contenedor y mapear puertos
-  
-  
-Mapear un puerto, permite que se conecte, el puerto de nuestra maquina local, con el puerto del contenedor
-  
-*-p mapea el puerto de nuestra maquina con el puerto del contenedor*
-  
-```
-docker run -d --name nombre_contenedor -p puerto_local:puerto_contenedor nombre_imagen:tag_imagen
 ```
 
 ## Renombrar un contenedor
