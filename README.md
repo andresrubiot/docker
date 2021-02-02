@@ -240,3 +240,36 @@ _Esta opción nos permite crear una imagen a partir de un contenedor_
 ```
  docker commit _nombre_contenedor_ _nombre_imagen:tag_imagen_
 ```
+
+# Volumenes
+
+Este comando nos devuelve la ruta root de docker
+
+```
+docker info | grep -i root
+```
+
+## Volumen nombrado
+
+Este comando nos crea un volumen con el nombre que le indiquemos dentro de la ruta de volumenes
+
+```
+docker volume create _nombre_volumen_
+```
+
+## Asignar volumen a un contenedor
+
+Para asignar un volumen a un contenedor, primero debe estar creado el volumen y posteriormente se lo asignamos al contenedor al momento de crearlo
+
+_-v nos indica la asignacion del volumen_
+_-v volumen-local:ruta-contenedor_
+
+```
+docker run -d --name _nombre_contenedor_ -v nombre-volumen:/var/lib/mysql -p puerto-local:puerto-contenedor nombre-imagen
+```
+
+## Eliminar volumen
+
+```
+docker volume rm _nombre_volumen_
+```
