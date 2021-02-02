@@ -273,3 +273,19 @@ docker run -d --name _nombre_contenedor_ -v nombre-volumen:/var/lib/mysql -p pue
 ```
 docker volume rm _nombre_volumen_
 ```
+
+## Dangling volume
+
+Los dangling volume son aquellos volumenes que no estan siendo utilizados o asociados a un contenedor
+
+Este comando, nos permite visualizar los volumenes dangling
+
+```
+docker volume ls -f dangling=true
+```
+
+## Eliminar dangling volume masivamente
+
+```
+docker volume ls -f dangling=true -q | xargs docker volume rm
+```
