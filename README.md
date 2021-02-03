@@ -289,3 +289,31 @@ docker volume ls -f dangling=true
 ```
 docker volume ls -f dangling=true -q | xargs docker volume rm
 ```
+
+# Redes
+
+Todos los contenedores que se creen y no se les asigne una red, tomaran la red por defecto: bridge
+
+## Interface de red
+
+La interface de red nos da la información de getawey creado y utilizado por docker
+
+```
+ip a | grep docker
+```
+
+## Red de docker
+
+Este comando nos devuelve la información de todas las redes creadas
+
+*La red por defecto de docker es bridge*
+
+```
+docker network ls
+```
+
+## Inspeccionar una red
+
+```
+docker network inspect _nombre-de-red_
+```
