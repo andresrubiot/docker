@@ -332,3 +332,13 @@ docker network create -d bridge --subnet 172.124.10.0/24 --gateway 172.124.10.1 
 ```
 docker network inspect _nombre-de-red_
 ```
+
+## Asignar una red a un contenedor
+
+Al crear un contenedor podemos indicarle que red utilizar
+
+*La red debe estar creada con anterioridad*
+
+```
+docker run -d --name nombre_contenedor --network _nombre-red_ nombre_imagen:tag_imagen
+```
