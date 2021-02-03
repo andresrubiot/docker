@@ -302,7 +302,7 @@ La interface de red nos da la información de getawey creado y utilizado por doc
 ip a | grep docker
 ```
 
-## Red de docker
+## Listar redes
 
 Este comando nos devuelve la información de todas las redes creadas
 
@@ -310,6 +310,21 @@ Este comando nos devuelve la información de todas las redes creadas
 
 ```
 docker network ls
+```
+
+## Crear una red
+
+```
+docker network create _nombre-red_
+```
+
+## Driver y Subnet de una red
+
+_-d define el tipo de driver de la red_
+_--subnet define la subnet de la red, *Debe cumplir los estandares CIDR* y que no se haya utilizado--_
+
+```
+docker network create -d bridge --subnet 172.124.10.0/24 --gateway 172.124.10.1 _nombre-red_
 ```
 
 ## Inspeccionar una red
