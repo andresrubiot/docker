@@ -342,3 +342,19 @@ Al crear un contenedor podemos indicarle que red utilizar
 ```
 docker run -d --name nombre_contenedor --network _nombre-red_ nombre_imagen:tag_imagen
 ```
+
+## Conectar contenedor a una red
+
+Cuando tenemos un contenedor en una red diferente a la que estamos usando, podemos conectaro usando el siguiente comando.
+
+El contenedor mantiene su red original, pero docker adjunta la red que se acaba de conectar, lo que hace que el conetenedor tenga acceso y conexión a los contenedores de las redes original y adjuntas
+
+```
+docker network connect _nombre-red_ _nombre-contenedor_
+```
+
+## Desconectar contenedor de una red
+
+```
+docker network disconnect _nombre-red_ _nombre-contenedor_
+```
