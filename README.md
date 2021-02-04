@@ -358,3 +358,11 @@ docker network connect _nombre-red_ _nombre-contenedor_
 ```
 docker network disconnect _nombre-red_ _nombre-contenedor_
 ```
+
+## Eliminar una red
+
+Antes de eliminar una red, esta no debe estar asociada a ningún contenedor
+
+```
+docker network rm _nombre-red_
+```
