@@ -294,6 +294,24 @@ docker volume ls -f dangling=true -q | xargs docker volume rm
 
 Todos los contenedores que se creen y no se les asigne una red, tomaran la red por defecto: bridge
 
+## Tipos de redes
+
+### Red bridge
+
+Esta es la red por defecto de docker y a la cual se conectaran los contenedores si no le asignamos una manualmente
+
+### Red host
+
+Esta es la red que utiliza nuestra maquina y al asignarse a un contenedor tomara las mismas caracteristicas de nuestra maquina real.
+
+_--network host_
+
+### Red none
+
+Al asignar esta red a un contenedor, dicho contenedor quedara sin red asignada
+
+_--network none_
+
 ## Interface de red
 
 La interface de red nos da la información de getawey creado y utilizado por docker
@@ -365,4 +383,13 @@ Antes de eliminar una red, esta no debe estar asociada a ningún contenedor
 
 ```
 docker network rm _nombre-red_
+```
+
+## Asignar IP a un contenedor
+
+Para asignar una ip a un contenedor, primero debe estar creada la red, con su respectiva subnet y gateway.
+La ip que queremos asignar no debe estar ocupada por otro contenedor
+
+```
+docker run -d --name nombre_contenedor --network _nombre-red_ --ip _ip_ nombre_imagen:tag_imagen
 ```
