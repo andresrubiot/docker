@@ -393,3 +393,16 @@ La ip que queremos asignar no debe estar ocupada por otro contenedor
 ```
 docker run -d --name nombre_contenedor --network _nombre-red_ --ip _ip_ nombre_imagen:tag_imagen
 ```
+
+# Docker compose
+
+Docker compose nos permite crear aplicaciones multicontenedor, esto quiere decir, aplicaciones que necesita mas de un contenedor, y nos permite crear todos los contenedores necesarios, sus respectivos volumenes y configuraciones y las redes necesarias.
+
+ejemplo:
+
+Una aplicación en php la cual necesite una base de datos debe tener:
+
+Un contenedor como servidor web con php instalado
+Un contenedor como base de datos para la información
+
+Se crearián estos dos contenedores y los conectariamos por una red que de igual manera creariamos.
