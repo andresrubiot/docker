@@ -83,6 +83,19 @@ docker history id_imagen
 ```
 docker rmi nombre_imagen:tag_imagen
 ```
+
+# Politica de reinicio de contenedores
+________________________________________________________________________________________________________
+|        flag        |                                   description                                    |
+________________________________________________________________________________________________________|
+|         no         | (Por defecto) - Nunca se va a reiniciar automaticamente                          |
+|_______________________________________________________________________________________________________|
+|       always       | Siempre se reinicia el contenedor automaticamente                                |
+|_______________________________________________________________________________________________________|
+|   unless-stopped   | Reinicia el contenedor hasta que nosotros mismos lo detengamos explicitamente    |
+|_______________________________________________________________________________________________________|
+|     on-failure     | El contenedor se reinicia automaticamente cuando obtiene un error interno        |
+|_______________________________________________________________________________________________________|
   
 #  Contenedores
 
