@@ -7,7 +7,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - "/home/andresrubiot/proyectos/docker/kross:/usr/share/nginx/html"
+      - "html-vol:/usr/share/nginx/html"
   
   db:
     container_name: mysql
@@ -15,3 +15,6 @@ services:
     ports:
       - "3306:3306"
     env_file: common.env
+
+volumes: 
+  html-vol:
