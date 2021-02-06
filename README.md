@@ -442,6 +442,23 @@ Desde la terminal, ubicados en donde se encuentra el archivo docker-compose.yml,
 docker-compose up -d
 ```
 
+## Prefijo del proyecto
+
+Al crear un contenedor con docker-compose, este por defecto crear un prefijo para las redes y volumenes basandose en la carpeta en la que nos encontremos ejemplo:
+
+Carpeta actual: docker-compose
+red: docker-compose_red
+volumen: docker-compose_volume
+
+Para cambiar este prefijo, utilizamos el flag -p => project
+
+```
+docker-compose -p _prefijo-personalizado_ up -d 
+```
+red: prefijo-personalizado_red
+volumen: prefijo-personalizado_volume
+
+
 ## Eliminar un contenedor con docker compose
 
 Desde la terminal, ubicados en donde se encuentra el archivo docker-compose.yml, ejecutamos el comando
