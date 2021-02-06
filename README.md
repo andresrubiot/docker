@@ -436,3 +436,20 @@ Desde la terminal, ubicados en donde se encuentra el archivo docker-compose.yml,
 ```
 docker-compose down
 ```
+
+## Variables de entorno
+
+Para definir variables de entorno tenemos dos opciones:
+
+1. Crearlas directamente en el docker-compose.yml:
+
+```
+enviroment:
+  - KEY=VAL
+```
+
+2. Crear un archivo .env (common.env) e indicar su ruta en el archivo de docker-compose.yml y en este archivo, en cada linea colocar el KEY=VAL
+
+```
+env_file: common.env
+```
