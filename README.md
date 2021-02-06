@@ -406,3 +406,33 @@ Un contenedor como servidor web con php instalado
 Un contenedor como base de datos para la información
 
 Se crearián estos dos contenedores y los conectariamos por una red que de igual manera creariamos.
+
+## Estructura docker compose
+
+Para crear un archivo docker compose, debemos tener en cuenta que la extensión debe ser *.yml* y sus secciones son:
+
+*Obligatorias*
+
+* version
+* services
+
+*Opcionales*
+
+* volumes
+* networks
+
+## Crear un contenedor con docker compose
+
+Desde la terminal, ubicados en donde se encuentra el archivo docker-compose.yml, ejecutamos el comando
+
+```
+docker-compose up -d
+```
+
+## Eliminar un contenedor con docker compose
+
+Desde la terminal, ubicados en donde se encuentra el archivo docker-compose.yml, ejecutamos el comando
+
+```
+docker-compose down
+```
