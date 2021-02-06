@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  web:
+    container_name: build-centos
+    image: centos-build
+    build:
+      context: . # Ruta donde esta el archivo dockerfile
+      dockerfile: Dockerfile # Nombre del dockerfile
