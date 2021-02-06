@@ -4,6 +4,7 @@ services:
   web:
     container_name: nginx
     image: nginx
+    # command: python -m SimpleHTTPServer 8080 # Sobre escribir el CMD de un contenedor
     ports:
       - "8080:80"
     volumes:
